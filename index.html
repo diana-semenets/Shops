@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        
+        <header class="header">   
+            <div class="header-burger">
+                <div class="menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="header__nav menu">
+            <ul>
+                <li class="header__nav-item">Про мене</li>
+                <li class="header__nav-item"><a href="ship.html">Доставка</a></li>
+                <li class="header__nav-item"><a href="shops.html">Магазини</a></li>
+                <li class="header__nav-item">Замовлення</li>
+            </ul>
+        </div>
+        </header>
+
+        <main class="main">
+            <section class="bg">
+                <div class="bg__inner">                    
+                    <div class="bg__inner-info">
+                    <div class="bg__inner-title">Сервіс викупу товарів з онлайн-магазинів Америки та Європи</div>
+                    <div class="bg__inner-text">Викупаю товари із більш ніж 50 магазинів.</div>
+                    <div class="bg__inner-btns">
+                        <div class="bg__btns-btn btn"><a href="shops.html#europe">Магазини Європи</a></div>
+                        <div class="bg__btns-btn btn"><a href="shops.html#usa">Магазини Америки</a></div>
+                    </div>
+                    </div>
+                    <div class="bg__inner-img"><img src="img/Group 1.svg" alt="" width="700"></div>
+                </div>
+            </section>
+
+            <section class="about">
+                <div class="about__inner">
+                    <div class="about__text">
+                        <ul class="about-list">
+                            <li class="about__text-about">Викуп товарів із онлайн-магазинів Америки та Європи більше 6 років.</li>
+                            <li class="about__text-about">Якісний одяг із більш ніж 50 онлайн-магазинів.</li>
+                            <li class="about__text-about">Замовляю одяг, взуття, побутові товари,  продукти харчування та інше.</li>
+                        </ul>
+                    </div>
+                    <div class="about__img"><img src="img/logos.svg" alt="" width="400"></div>
+                </div>
+            </section>
+
+            <section class="news">
+                <div class="news__inner">
+                    <div class="news__title">Акції</div>
+                    <div class="news__cards">
+                        <div class="bg__kurs">
+                            <div class="bg__kurs-kurs">
+                                <img class="news__cards-img" src="img/pb.png" alt="" width="248">
+                                <div class="news__cards-title">Курс валют</div>
+                                <div class="bg__kurs-usa"><img class="bg__kurs-img" src="img/united-states.png" alt="" width="30"><span>37,50</span></div>
+                                <div class="bg__kurs-eur"><img class="bg__kurs-img" src="img/euro.png" alt="" width="30"><span>41,50</span></div>
+                                <div class="bg__kurs-pound"><img class="bg__kurs-img" src="img/united-kingdom.png" alt="" width="30"><span id="poundKurs">47,20</span></div>
+                                <div class="bg__kurs-zl"><img class="bg__kurs-img" src="img/poland.png" alt="" width="30"><span>9,20</span></div>
+                                <div class="news__cards-data">21.01</div>
+                            </div>
+                        </div>
+ <!---                  <div class="news__cards-card">
+                            <img class="news__cards-img" src="img/inditex.png" alt="" width="248">
+                            <div class="news__cards-title">SALE!!! ZARA, Bershka, MD</div>
+                            <div class="news__cards-text">У групі компаній мережі INDITEX стартував піврічний розпродаж</div>
+                            <div class="news__cards-data">06.01</div>
+                        </div> --->
+                    </div>
+                </div>
+            </section>
+
+            <section class="footer">
+                <div class="footer__inner">
+                    <div class="footer__contacts"><span> Контакти </span>
+                        <a href="viber://chat?number=%2B380679751016"> <img src="img/viber.svg" alt="" width="30"></a>  
+                        <a href="https://t.me/DianyUS"> <img src="img/telegram.svg" alt="" width="35"></a>
+                        <a href="https://www.instagram.com/buyer.diana/?igshid=NDk5N2NIZjQ%3D"> <img src="img/instagram.svg" alt="" width="30"></a>
+                    </div>
+                </div>
+            </section >
+        </main>
+        
+    </div>
+    <script src="js/script.js"></script>    
+    <script>
+        function showDate () {
+            let now = new Date();
+  
+            let span = document.querySelector(".news__cards-data");
+            let date = now.getDate();               
+            let months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
+            let month = months[now.getMonth()];
+     
+            span.innerHTML = `${date}.${month}`;     
+        }
+        showDate()
+//--------------------//
+
+        class MenuNewsCard {
+            constructor(src, title, description, data, parentSelector) {
+        
+                this.src = src;
+                this.title = title;
+                this.description = description;    
+                this.data = data; 
+                this.parent = document.querySelector(parentSelector);      
+            }
+  
+        render() {
+            const element = document.createElement('div');
+            element.innerHTML = `
+            <div class="news__cards-card">
+                <img class="news__cards-img" src=${this.src} alt="" width="248">
+                <div class="news__cards-title">${this.title}</div>
+                <div class="news__cards-text">${this.description}</div>
+                <div class="news__cards-data">${this.data}</div>
+            </div>
+        `;
+        this.parent.append(element);
+        }
+        }
+        new MenuNewsCard (
+            "img/h-m.svg",
+            'H&M Англія',
+            'Додаткова знижка від цін сайту -15% !!!  Акція до 30.01',
+            '27.01',
+            '.news__cards'
+        ).render();
+
+        new MenuNewsCard (
+            "img/inditex.png",
+            'SALE!!! ZARA, Bershka, MD',
+            'У групі компаній мережі INDITEX стартував піврічний розпродаж',
+            '06.01',
+            '.news__cards'
+        ).render();
+
+    </script>
+</body>
+</html>
